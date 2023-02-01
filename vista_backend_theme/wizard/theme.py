@@ -185,7 +185,7 @@ class Theme(models.TransientModel):
             if menu.name == 'Attendances':
                 img_path = get_module_resource(
                     'vista_backend_theme', 'static', 'src', 'img', 'icons',
-                    'attendances.png')
+                    'attendance.png')
                 menu.write({'web_icon_data': base64.b64encode(
                     open(img_path, "rb").read())})
             if menu.name == 'Time Off':
@@ -227,7 +227,7 @@ class Theme(models.TransientModel):
             if menu.name == 'Timesheets':
                 img_path = get_module_resource(
                     'vista_backend_theme', 'static', 'src', 'img', 'icons',
-                    'timesheets.png')
+                    'timesheet.png')
                 menu.write({'web_icon_data': base64.b64encode(
                     open(img_path, "rb").read())})
             if menu.name == 'Events':
@@ -414,7 +414,7 @@ class Theme(models.TransientModel):
                 img_path = get_module_resource(
                     'vista_backend_theme', 'static', 'src', 'img',
                     'icons_green',
-                    'attendances.png')
+                    'attendance.png')
                 menu.write({'web_icon_data': base64.b64encode(
                     open(img_path, "rb").read())})
             if menu.name == 'Time Off':
@@ -463,7 +463,7 @@ class Theme(models.TransientModel):
                 img_path = get_module_resource(
                     'vista_backend_theme', 'static', 'src', 'img',
                     'icons_green',
-                    'timesheets.png')
+                    'timesheet.png')
                 menu.write({'web_icon_data': base64.b64encode(
                     open(img_path, "rb").read())})
             if menu.name == 'Events':
