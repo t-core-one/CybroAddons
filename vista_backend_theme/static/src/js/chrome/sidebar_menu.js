@@ -90,18 +90,4 @@ odoo.define('code_backend_theme.SidebarMenu', function (require) {
         $("div").removeClass(top_head_id);
         top_head.removeClass("sidebar_margin");
     });
-//    //Custom
-//    var showBar = false;
-//
-//    $(document).on("click", "#triggerSidebar", function(event){
-//
-//        if(showBar){
-//            hideSidebar();
-//        }else{
-//            showSidebar();
-//        }
-//         $("#triggerSidebar").toggleClass('c_sidebar_active c_sidebar_passive');
-//         $('#dotsMenuContainer').toggleClass('c_dots_menu c_dots_menu_toggled');
-//         showBar = !showBar;
-//    });
 });
