@@ -30,13 +30,13 @@
     'website': "https://www.cybrosys.com",
     'depends': ['web'],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             '/progress_bar_widget/static/src/css/progress_bar_widget.css',
             '/progress_bar_widget/static/src/js/progress_bar_widget.js',
-        },
-        'web.assets_qweb': {
+        ],
+        'web.assets_qweb': [
             '/progress_bar_widget/static/src/xml/progress_bar_widget.xml',
-        },
+        ],
     },
     'images': ['static/description/banner.png'],
     'license': 'LGPL-3',

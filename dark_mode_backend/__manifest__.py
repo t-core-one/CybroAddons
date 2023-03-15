@@ -35,16 +35,16 @@
         'views/layout.xml',
     ],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             '/dark_mode_backend/static/src/scss/theme_accent.scss',
             '/dark_mode_backend/static/src/scss/datetimepicker.scss',
             '/dark_mode_backend/static/src/scss/theme.scss',
             'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet',
-        },
-        'web.assets_frontend': {
+        ],
+        'web.assets_frontend': [
             '/dark_mode_backend/static/src/scss/login.scss',
             'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet',
-        },
+        ],
     },
     'images': [
         'static/description/banner.png',

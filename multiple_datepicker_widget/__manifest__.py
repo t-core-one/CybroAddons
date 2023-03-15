@@ -31,14 +31,14 @@
     'website': 'https://www.cybrosys.com',
     'depends': ['base'],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             '/multiple_datepicker_widget/static/src/css/datepicker_widget.css',
             '/multiple_datepicker_widget/static/src/js/lib/bootstrap-datepicker.min.js',
             '/multiple_datepicker_widget/static/src/js/datepicker_widget.js',
-        },
-        'web.assets_qweb': {
+        ],
+        'web.assets_qweb': [
             '/multiple_datepicker_widget/static/src/xml/datepicker_widget.xml',
-        },
+        ],
     },
     'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
