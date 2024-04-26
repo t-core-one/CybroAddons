@@ -32,7 +32,7 @@
     'maintainer': 'Cybrosys Techno Solutions',
     'website': 'https://www.cybrosys.com',
     'depends': ['base', 'fleet'],
-    'data': {
+    'data': [
         'security/fleet_vehicle_inspection_management.xml',
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
@@ -46,7 +46,7 @@
         'report/vehicle_service_log_reports.xml',
         'report/vehicle_service_log_templates.xml',
         'wizard/fleet_service_inspection_views.xml',
-    },
+    ],
     'images': ['static/description/banner.jpg'],
     'license': 'AGPL-3',
     'installable': True,

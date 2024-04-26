@@ -31,9 +31,9 @@
     'maintainer': 'Cybrosys Techno Solutions',
     'website': 'https://www.cybrosys.com',
     'depends': ['base', 'pos_loyalty'],
-    'data': {
+    'data': [
         'views/res_users_views.xml',
-    },
+    ],
     'assets': {
         'point_of_sale.assets': [
             'pos_button_visibility/static/src/js/models_load.js',

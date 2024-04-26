@@ -33,9 +33,9 @@
     'maintainer': 'Cybrosys Techno Solutions',
     'website': 'https://www.cybrosys.com',
     'depends': ['base', 'mail'],
-    'data': {
+    'data': [
         'views/res_users_views.xml'
-    },
+    ],
     'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
     'installable': True,
