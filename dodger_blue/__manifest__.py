@@ -18,17 +18,17 @@
         'views/login_templates.xml',
     ],
     'assets': {
-        'web.assets_frontend': {
+        'web.assets_frontend': [
             'dodger_blue/static/src/scss/theme_style.scss',
-        },
-        'web.assets_backend': {
+        ],
+        'web.assets_backend': [
             'dodger_blue/static/src/js/sidebar_menu.js',
             'dodger_blue/static/src/scss/theme_style_backend.scss',
-        },
-        'web.assets_qweb': {
+        ],
+        'web.assets_qweb': [
             'dodger_blue/static/src/xml/base_ext.xml',
             'dodger_blue/static/src/xml/sidebar_menu_icon.xml',
-        },
+        ],
     },
 
     'license': 'LGPL-3',

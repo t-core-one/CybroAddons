@@ -34,13 +34,13 @@
     'data': ['views/res_users_views.xml'],
     'images': ['static/description/banner.jpg'],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             'user_weather_notification/static/src/scss/weather.scss',
             'user_weather_notification/static/src/js/weather_notification.js',
-        },
-        'web.assets_qweb': {
+        ],
+        'web.assets_qweb': [
             'user_weather_notification/static/src/xml/weather_notification_templates.xml',
-        },
+        ],
 
     },
     'external_dependencies': {

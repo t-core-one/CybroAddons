@@ -37,7 +37,7 @@
         'security/ir.model.access.csv'
     ],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             'backend_theme_infinito_plus/static/src/css/chatter.css',
             'backend_theme_infinito_plus/static/src/css/font.css',
             'backend_theme_infinito_plus/static/src/scss/animation.scss',
@@ -45,13 +45,13 @@
             'backend_theme_infinito_plus/static/src/js/navbar.js',
             'backend_theme_infinito_plus/static/src/js/ThemeStudioMenu.js',
             'backend_theme_infinito_plus/static/src/js/systray.js'
-        },
-        'web.assets_qweb': {
+        ],
+        'web.assets_qweb': [
             'backend_theme_infinito_plus/static/src/xml/sidebar_templates.xml',
             'backend_theme_infinito_plus/static/src/xml/AddGoogleFonts_templates.xml',
             'backend_theme_infinito_plus/static/src/xml/refresh_templates.xml',
             'backend_theme_infinito_plus/static/src/xml/systray_templates.xml'
-        }
+        ]
     },
     'images': [
         'static/description/banner.jpg',

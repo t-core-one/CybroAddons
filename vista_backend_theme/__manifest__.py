@@ -40,20 +40,20 @@
         'data/theme_data.xml',
     ],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             '/vista_backend_theme/static/src/scss/theme.scss',
             '/vista_backend_theme/static/src/js/systray.js',
             '/vista_backend_theme/static/src/js/load.js',
             '/vista_backend_theme/static/src/js/chrome/sidebar_menu.js',
-        },
-        'web.assets_frontend': {
+        ],
+        'web.assets_frontend': [
             '/vista_backend_theme/static/src/scss/login.scss',
             '/vista_backend_theme/static/src/scss/login.scss',
-        },
-        'web.assets_qweb': {
+        ],
+        'web.assets_qweb': [
             '/vista_backend_theme/static/src/xml/systray.xml',
             '/vista_backend_theme/static/src/xml/top_bar.xml',
-        },
+        ],
     },
     'images': [
         'static/description/banner.png',

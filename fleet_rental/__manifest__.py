@@ -47,9 +47,9 @@
             'fleet_rental/static/src/js/time_widget.js',
             'fleet_rental/static/src/scss/timepicker.scss'
         ],
-        'web.assets_qweb': {
+        'web.assets_qweb': [
             'fleet_rental/static/src/xml/timepicker.xml',
-        },
+        ],
     },
     'images': ['static/description/banner.png'],
     'license': 'AGPL-3',

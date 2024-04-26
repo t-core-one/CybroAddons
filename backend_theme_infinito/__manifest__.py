@@ -40,10 +40,10 @@
         'views/icons.xml',
     ],
     'assets': {
-        'web._assets_primary_variables': {
+        'web._assets_primary_variables': [
             'backend_theme_infinito/static/src/scss/theme_variables.scss',
-        },
-        'web.assets_backend': {
+        ],
+        'web.assets_backend': [
             'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap',
             '/backend_theme_infinito/static/src/css/style.css',
             '/backend_theme_infinito/static/src/css/loaders.css',
@@ -73,8 +73,8 @@
             '/backend_theme_infinito/static/src/js/theme_studio_action.js',
             '/backend_theme_infinito/static/src/js/ThemeStudioMenu.js',
             '/backend_theme_infinito/static/src/js/variables.js',
-        },
-        'web.assets_qweb': {
+        ],
+        'web.assets_qweb': [
             '/backend_theme_infinito/static/src/xml/systray.xml',
             '/backend_theme_infinito/static/src/xml/views.xml',
             '/backend_theme_infinito/static/src/xml/theme_editor.xml',
@@ -83,7 +83,7 @@
             '/backend_theme_infinito/static/src/xml/style_add.xml',
             '/backend_theme_infinito/static/src/xml/sidebar.xml',
             '/backend_theme_infinito/static/src/xml/MenuBookmark.xml',
-        },
+        ],
     },
     'post_init_hook': 'icons_post_init_hook',
     'images': [
