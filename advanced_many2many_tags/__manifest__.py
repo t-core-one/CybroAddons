@@ -36,9 +36,9 @@
     'images': ['static/description/banner.jpg'],
     'depends': ['base', 'web'],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             'advanced_many2many_tags/static/src/js/many2many_tags_field.js'
-        }
+        ]
     },
     'license': 'AGPL-3',
     'installable': True,

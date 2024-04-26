@@ -35,10 +35,10 @@
     'website': 'https://www.cybrosys.com',
     'depends': ['web'],
     'assets': {
-        'web.assets_backend': {
+        'web.assets_backend': [
             'widget_preview_image/static/src/js/image_preview_widget.js',
             'widget_preview_image/static/src/xml/widget_image_preview.xml',
-        }
+        ]
     },
     'images': ['static/description/banner.jpg'],
     'license': 'AGPL-3',
