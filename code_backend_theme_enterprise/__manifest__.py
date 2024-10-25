@@ -55,7 +55,9 @@
     },
     'images': [
         'static/img/banner.jpg',
+        'static/img/theme_screenshot.jpg',
     ],
+    'icon':'static/description/icon.png',
     'license': 'LGPL-3',
     'installable': True,
     'auto_install': False,
