@@ -14,7 +14,7 @@ patch(NavBar.prototype, {
     setup() {
         super.setup()
         var self = this;
-        this._search_def = $.Deferred();
+        this._search_def = this.createDeferred();
         let { apps, menuItems } = computeAppsAndMenuItems
             (this.menuService.getMenuAsTree("root"));
         this._apps = apps;
@@ -28,6 +28,16 @@ patch(NavBar.prototype, {
             this.setClass();
         })
     },
+    createDeferred() {
+    let deferred = {};
+
+    deferred.promise = new Promise((resolve, reject) => {
+        deferred.resolve = resolve;
+        deferred.reject = reject;
+    });
+
+    return deferred;
+},
     async fetch_data() {
         // To fetch colors from database.
         this.orm = useService("orm")
@@ -64,11 +74,11 @@ patch(NavBar.prototype, {
     },
     setClass() {
         // Set variable for html elements.
-        this.$search_container = $(this.search_container.el)
-        this.$search_input = $(this.search_input.el);
-        this.$search_results = $(this.search_results.el);
-        this.$app_menu = $(this.app_menu.el);
-        this.$dropdown_menu = $(this.search_container.el.parentElement);
+        this.$search_container = this.search_container.el;
+        this.$search_input = this.search_input.el;
+        this.$search_results = this.search_results.el;
+        this.$app_menu = this.app_menu.el;
+        this.$dropdown_menu = this.search_container.el.parentElement;
     },
     _searchMenusSchedule() {
         // Hide / Show based on search input.

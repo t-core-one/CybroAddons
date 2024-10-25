@@ -42,17 +42,18 @@
             "hue_backend_theme/static/src/layout/style/layout_style.scss",
             "hue_backend_theme/static/src/layout/style/sidebar.scss",
             "hue_backend_theme/static/src/components/app_menu/search_apps.js",
-            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/'
-            'jquery.min.js',
+            # 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/'
+            # 'jquery.min.js',
         ],
         "web.assets_frontend": [
             "hue_backend_theme/static/src/layout/style/login.scss",
         ],
     },
     "images": [
-        "static/description/template01.jpg",
-        "static/description/template02.jpg",
+        "static/description/banner.jpg",
+        "static/description/theme_screenshot.jpg",
     ],
+    'icon': 'static/description/icon.png',
     "license": "LGPL-3",
     "installable": True,
     "auto_install": False,
