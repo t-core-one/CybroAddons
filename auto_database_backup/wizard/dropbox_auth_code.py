@@ -54,6 +54,5 @@ class AuthenticationWizard(models.TransientModel):
         provided authorization code."""
         backup_config = self.env['db.backup.configure'].browse(
             self.env.context.get('active_id'))
-        backup_config.hide_active = True
-        backup_config.active = True
+        backup_config.active = backup_config.hide_active= True
         backup_config.set_dropbox_refresh_token(self.dropbox_authorization_code)
