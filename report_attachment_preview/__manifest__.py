@@ -21,7 +21,7 @@
 #############################################################################
 {
     'name': 'Reports and Attachments Preview in Browser',
-    'version': '18.0.1.0.0',
+    'version': '1.3',
     'category': 'Extra Tools',
     'summary': """Open PDF Reports and Attachments Preview in new Browser Tab""",
     'description': """This module enables viewing PDF reports and attachments in
