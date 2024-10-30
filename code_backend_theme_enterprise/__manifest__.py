@@ -54,8 +54,8 @@
         ],
     },
     'images': [
-        'static/img/banner.jpg',
-        'static/img/theme_screenshot.jpg',
+        'static/description/banner.jpg',
+        'static/description/theme_screenshot.jpg',
     ],
     'icon':'static/description/icon.png',
     'license': 'LGPL-3',
