@@ -7,9 +7,13 @@ import { AbstractAwaitablePopup } from "@point_of_sale/app/popup/abstract_awaita
 class RestrictStockPopup extends AbstractAwaitablePopup {
     _OrderProduct() {
     // On clicking order product button on popup, it will add product to orderline
+    if(this.props.pro_id){
         var product = this.env.services.pos.db.get_product_by_id(this.props.pro_id)
+        product.order_status = True
         this.env.services.pos.selectedOrder.add_product(product);
-        this.cancel();
+    }
+          this.props.resolve(true);
+         this.cancel();
     }
 }
 RestrictStockPopup.template = 'RestrictStockPopup';
