@@ -74,11 +74,6 @@ class PosOrder(models.Model):
             pos_orders = self.search(
                 [("pos_reference", "=", vals["pos_reference"])])
             if pos_orders:
-                for rec in pos_orders.lines:
-                    for lin in vals_list[0]["lines"]:
-                        if lin[2]["product_id"] == rec.product_id.id:
-                            lin[2]["order_status"] = rec.order_status
-                vals_list[0]["order_status"] = pos_orders.order_status
                 return super().create(vals_list)
 
             else:
