@@ -24,8 +24,9 @@
     'name': 'POS Receipt Design',
     'version': '18.0.1.0.0',
     'category': 'Point of Sale',
-    'summary': "Customize POS receipts with unique templates for each POS in "
-               "Odoo 18",
+    'summary': "POS Receipt, Receipt Design, POS Receipt Template, Design "
+               "Report, Custom Receipt, POS Report, Customise Receipt, Odoo18, "
+               "Odoo Apps",
     'description': "Option to select the customised Receipts for each POS. So, "
                    "we can easily updated the Receipt Design for better styles",
     'author': 'Cybrosys Techno Solutions',
