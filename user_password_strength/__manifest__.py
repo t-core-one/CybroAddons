@@ -39,7 +39,9 @@
     ],
     'images': ['static/description/banner.png'],
     'assets': {
-            'web.assets_frontend': ['user_password_strength/static/src/js/signup_user.js', ],
+            'web.assets_frontend': [
+                'user_password_strength/static/src/js/signup_user.js',
+            ],
     },
     'license': "AGPL-3",
     'installable': True,
