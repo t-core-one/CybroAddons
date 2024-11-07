@@ -79,7 +79,7 @@
         ],
     },
     'images': [
-        'static/description/banner.png',
+        'static/description/banner.jpg',
         'static/description/theme_screenshot.jpg',
     ],
     'license': 'AGPL-3',
