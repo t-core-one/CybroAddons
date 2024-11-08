@@ -20,7 +20,7 @@
 #############################################################################
 {
     'name': 'Multiple SMS Gateway Integration',
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.0.1',
     'category': 'Extra Tools',
     'summary': 'Module to send SMS through different SMS gateway',
     'description': """This modules helps to send SMS using different SMS 
