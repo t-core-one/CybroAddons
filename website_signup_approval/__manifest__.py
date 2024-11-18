@@ -46,7 +46,7 @@
             'website_signup_approval/static/src/js/signup.js'
         ],
     },
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.png'],
     'license': 'LGPL-3',
     'installable': True,
     'auto_install': False,
