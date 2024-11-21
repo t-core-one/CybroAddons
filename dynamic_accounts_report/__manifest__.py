@@ -21,7 +21,7 @@
 ################################################################################
 {
     'name': 'Odoo18 Dynamic Accounting Reports',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'category': 'Accounting',
     'summary': "Odoo 18 Accounting Financial Reports,Dynamic Accounting Reports, Dynamic Financial Reports,Dynamic Report Odoo18, Odoo18,Financial Reports, Odoo18 Accounting,Accounting, Odoo Apps",
     'description': "This module creates dynamic Accounting General Ledger, Trial"
@@ -70,7 +70,8 @@
             'dynamic_accounts_report/static/src/js/aged_payable_report.js',
             'dynamic_accounts_report/static/src/js/aged_receivable_report.js',
             'dynamic_accounts_report/static/src/js/tax_report.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+            # 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' #FIX Not need as this version has a
+            # conflict with the version of jquery used by the odoo
         ],
     },
     'images': ['static/description/banner.png'],
