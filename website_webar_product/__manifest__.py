@@ -44,7 +44,7 @@
             '/website_webar_product/static/src/css/website_product_view.css',
         ],
     },
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
     'installable': True,
     'auto_install': False,
