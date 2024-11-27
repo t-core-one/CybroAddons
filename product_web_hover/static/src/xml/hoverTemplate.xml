@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--This XML template defines the structure for the product detail popover widget in Odoo's sales order form-->
+<template id="template" xml:space="preserve">
+    <t t-name="product_web_hover.productDetail">
+        <a t-on-mouseenter="onMouseEnter"
+           t-on-mouseleave="onMouseLeave"
+           t-attf-class="fa fa-info-circle" />
+    </t>
+    <t t-name="product_web_hover.productDetailPopover">
+        <div style="background-color: #000; color: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 15px; max-width: 300px; z-index: 1000;">
+        <div>
+            <table class="table table-borderless table-sm">
+                <br/>
+                <tr>
+                    <td>
+                        <img t-att-src="'data:image/png;base64,' + props.productDetails.image_1920"
+                                     class="img-fluid text-center" style="width: 50px; margin-left: 10px;"/><br/>
+                        <span>Product Name: <t t-esc="props.productDetails.name"/></span><br/>
+                        <span>Reference: <t t-esc="props.productDetails.categ_id[1]"/></span><br/>
+                        <span>Category: <t t-esc="props.productDetails.default_code"/></span><br/>
+                        <span>Cost: <t t-esc="props.productDetails.standard_price"/></span><br/>
+                        <span>Quantity: <t t-esc="props.record.data.product_uom_qty"/></span><br/>
+                        <span>Price: <t t-esc="props.record.data.price_unit"/></span><br/>
+                        <span>Quantity_available: <t t-esc="props.productDetails.qty_available"/></span><br/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </t>
+</template>
