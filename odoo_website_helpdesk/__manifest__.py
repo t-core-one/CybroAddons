@@ -20,14 +20,12 @@
 #
 ################################################################################
 {
-    'name': "Website Helpdesk Support Ticket Management",
+    'name': "Website Helpdesk Management",
     'version': '18.0.1.0.0',
     'category': 'Website',
     'summary': """The website allows for the creation of tickets, which can 
     then be controlled from the backend.""",
-    'description': """A ticket can be created from the website and subsequently
-     managed from the backend. Additionally, a bill can be generated for the
-     ticket, which includes the service cost.""",
+    'description': """Website Helpdesk, Odoo Helpdesk, Helpdesk, Helpdesk Management, Helpdesk Ticket, Odoo18 Helpdesk, Website Ticket, Support Ticket, Odoo18""",
     'author': "Cybrosys Techno Solutions",
     'company': 'Cybrosys Techno Solutions',
     'maintainer': 'Cybrosys Techno Solutions',
@@ -67,7 +65,7 @@
             '/odoo_website_helpdesk/static/src/js/multiple_product_choose.js',
         ]
     },
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner.jpg'],
     'license': 'LGPL-3',
     'installable': True,
     'auto_install': False,
