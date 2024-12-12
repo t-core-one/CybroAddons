@@ -45,7 +45,6 @@ class RoomBookingLine(models.Model):
                                          " Otherwise sets to current Date",
                                     required=True)
     room_id = fields.Many2one('hotel.room', string="Room",
-                              domain=[('status', '=', 'available')],
                               help="Indicates the Room",
                               required=True)
     uom_qty = fields.Float(string="Duration",
@@ -137,3 +136,33 @@ class RoomBookingLine(models.Model):
                 'currency_id': self.currency_id,
             },
         )
+
+    @api.onchange('checkin_date', 'checkout_date', 'room_id')
+    def onchange_checkin_date(self):
+        """On change of check-in date, check-out date, or room ID,
+           this method validates if the selected room is available
+           for the given dates. It searches for existing bookings
+           in the 'reserved' or 'check_in' state and checks for date
+           conflicts. If a conflict is found, a ValidationError is raised."""
+        records = self.env['room.booking'].search(
+            [('state', 'in', ['reserved', 'check_in'])])
+        for rec in records:
+            rec_room_id = rec.room_line_ids.room_id
+            rec_checkin_date = rec.room_line_ids.checkin_date
+            rec_checkout_date = rec.room_line_ids.checkout_date
+            if rec_room_id and rec_checkin_date and rec_checkout_date:
+                # Check for conflicts with existing room lines
+                for line in self:
+                    if line.id != rec.id and line.room_id == rec_room_id:
+                        # Check if the dates overlap
+                        if (rec_checkin_date <= line.checkin_date <= rec_checkout_date or
+                                rec_checkin_date <= line.checkout_date <= rec_checkout_date):
+                            raise ValidationError(
+                                _("Sorry, You cannot create a reservation for "
+                                  "this date since it overlaps with another "
+                                  "reservation..!!"))
+                        if rec_checkout_date <= line.checkout_date and rec_checkin_date >= line.checkin_date:
+                            raise ValidationError(
+                                "Sorry You cannot create a reservation for this"
+                                "date due to an existing reservation between "
+                                "this date")
