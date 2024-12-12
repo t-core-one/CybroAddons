@@ -5,7 +5,7 @@
             <field name="name">Blast Configuration</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">blast.configuration</field>
-            <field name="view_mode">list,form</field>
+            <field name="view_mode">tree,form</field>
         </record>
 <!--        Blast configuration tree view-->
         <record id="blast_configuration_view_tree" model="ir.ui.view">

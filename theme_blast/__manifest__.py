@@ -83,8 +83,8 @@
         ]
     },
     'images': [
-        'static/description/img/banner.jpg',
-        'static/description/img/theme-blast-thumbnail.jpg',
+        "static/description/banner.jpg",
+        "static/description/theme_screenshot.jpg",
     ],
     'license': 'AGPL-3',
     'installable': True,

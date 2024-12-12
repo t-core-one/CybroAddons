@@ -41,14 +41,9 @@
                                 <div class="wrapper">
                                     <div class="deal_img">
                                         <a t-attf-href="/shop/product/#{ slug(product_id.product_tmpl_id) }">
-                                            <t t-if="product_id.image_1920">
-                                                <span t-if="product_id"
-                                                      t-esc="product_id.image_1920"
-                                                      t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_256'}"/>
-                                            </t>
-                                            <t t-else="">
-                                                <img loading="lazy" alt="Binary file" src="/web/static/img/placeholder.png" name="image_1920" class="first-image"/>
-                                            </t>
+                                            <span t-if="product_id"
+                                                  t-esc="product_id.image_1920"
+                                                  t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_256'}"/>
                                         </a>
                                     </div>
                                     <div class="deal_info">
