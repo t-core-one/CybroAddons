@@ -241,16 +241,18 @@ class TrialBalance extends owl.Component {
         }
         this.state.data = await this.orm.call("account.trial.balance", "get_filter_values", [this.start_date.el.value, this.end_date.el.value, this.state.comparison_number, this.state.comparison_type, this.state.selected_journal_list, this.state.selected_analytic, this.state.options,this.state.method,]);
         var date_viewed = []
-        $.each(this.state.data, function (index, value) {
+        this.state.data.forEach((value, index) => {
             if (index == 'journal_ids') {
                 this.state.journals = value
             }
             if (value.dynamic_date_num) {
-                $.each(value.dynamic_date_num, function (index, value) {
-                    if (!date_viewed.includes(value)) {
-                        date_viewed.push(value)
-                    }
-                })
+            let iterable = Array.isArray(value.dynamic_date_num) ? value.dynamic_date_num
+               : Object.values(value.dynamic_date_num);
+                for (const date_num of iterable) {
+                     if (!date_viewed.includes(date_num)) {
+                         date_viewed.push(date_num);
+                     }
+                }
             }
         })
         if (date_viewed.length !== 0) {

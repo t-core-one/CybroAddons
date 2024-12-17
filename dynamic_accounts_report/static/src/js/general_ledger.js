@@ -281,7 +281,8 @@ class GeneralLedger extends owl.Component {
             }
         }
         let filtered_data = await this.orm.call("account.general.ledger", "get_filter_values", [this.state.selected_journal_list, this.state.date_range, this.state.options, this.state.selected_analytic_list,this.state.method]);
-        $.each(filtered_data, function (index, value) {
+        for (let index in filtered_data) {
+             const value = filtered_data[index];
             if (index !== 'account_totals' && index !== 'journal_ids' && index !== 'analytic_ids') {
                 account_list.push(index)
             }
@@ -292,25 +293,25 @@ class GeneralLedger extends owl.Component {
                         totalCreditSum += account_list.total_credit || 0;
                     });
             }
-        })
+        }
         this.state.account = account_list
         this.state.account_data = filtered_data
         this.state.account_total = account_totals
         this.state.total_debit = totalDebitSum.toFixed(2)
         this.state.total_credit = totalCreditSum.toFixed(2)
-        if ($(this.unfoldButton.el.classList).find("selected-filter")) {
-            this.unfoldButton.el.classList.remove("selected-filter")
+        if (this.unfoldButton.el.classList.contains("selected-filter")) {
+            this.unfoldButton.el.classList.remove("selected-filter");
         }
     }
     async unfoldAll(ev) {
         if (!ev.target.classList.contains("selected-filter")) {
             for (var length = 0; length < this.tbody.el.children.length; length++) {
-                $(this.tbody.el.children[length])[0].classList.add('show')
+                this.tbody.el.children[length].classList.add('show')
             }
             ev.target.classList.add("selected-filter");
         } else {
             for (var length = 0; length < this.tbody.el.children.length; length++) {
-                $(this.tbody.el.children[length])[0].classList.remove('show')
+                this.tbody.el.children[length].classList.remove('show')
             }
             ev.target.classList.remove("selected-filter");
         }

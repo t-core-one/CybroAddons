@@ -66,12 +66,12 @@ class TaxReport extends owl.Component {
             self.start_date.el.value = startOfMonth.getFullYear() + '-' + String(startOfMonth.getMonth() + 1).padStart(2, '0') + '-' + String(startOfMonth.getDate()).padStart(2, '0');
             self.end_date.el.value = endOfMonth.getFullYear() + '-' + String(endOfMonth.getMonth() + 1).padStart(2, '0') + '-' + String(endOfMonth.getDate()).padStart(2, '0');
             self.state.date_viewed.push(monthNamesShort[today.getMonth()] + '  ' + today.getFullYear())
-            $.each(self.state.data.sale, function (index, value) {
-                    self.state.sale_total += value.tax
-            })
-            $.each(self.state.data.purchase, function (index, value) {
-                    self.state.purchase_total += value.tax
-            })
+            self.state.data.sale.forEach((value) => {
+                  self.state.sale_total += value.tax;
+            });
+            self.state.data.purchase.forEach((value) => {
+                  self.state.purchase_total += value.tax
+            });
         }
         catch (el) {
             window.location.href;
@@ -184,10 +184,10 @@ class TaxReport extends owl.Component {
                     'account': true
                 };
                 val.target.classList.add("selected-filter");
-                if($(this.tax.el.classList.contains("selected-filter"))) {
+                if(this.tax.el.classList.contains("selected-filter")) {
                     this.tax.el.classList.remove("selected-filter");
                 }
-                if($(this.global.el.classList.contains("selected-filter"))) {
+                if(this.global.el.classList.contains("selected-filter")) {
                     this.global.el.classList.remove("selected-filter");
                 }
             }
@@ -201,10 +201,10 @@ class TaxReport extends owl.Component {
                     'tax': true
                 };
                 val.target.classList.add("selected-filter");
-                if($(this.account.el.classList.contains("selected-filter"))) {
+                if(this.account.el.classList.contains("selected-filter")) {
                     this.account.el.classList.remove("selected-filter");
                 }
-                if($(this.global.el.classList.contains("selected-filter"))) {
+                if(this.global.el.classList.contains("selected-filter")) {
                     this.global.el.classList.remove("selected-filter");
                 }
             }
@@ -216,10 +216,10 @@ class TaxReport extends owl.Component {
             } else {
                 this.state.report_type = null
                 val.target.classList.add("selected-filter");
-                if($(this.account.el.classList.contains("selected-filter"))) {
+                if(this.account.el.classList.contains("selected-filter")) {
                     this.account.el.classList.remove("selected-filter");
                 }
-                if($(this.tax.el.classList.contains("selected-filter"))) {
+                if(this.tax.el.classList.contains("selected-filter")) {
                     this.tax.el.classList.remove("selected-filter");
                 }
             }
@@ -251,18 +251,21 @@ class TaxReport extends owl.Component {
         var date_viewed = []
         var sale_total = 0.0
         var purchase_total = 0.0
-        $.each(this.state.data.sale, function (index, value) {
-                sale_total += value.tax
-        })
-        $.each(this.state.data.purchase, function (index, value) {
-                purchase_total += value.tax
-        })
+        this.state.data.sale.forEach((value) => {
+            sale_total += value.tax;
+        });
+        this.state.data.purchase.forEach((value) => {
+            purchase_total += value.tax;
+        });
         var date_viewed = []
-        $.each(this.state.data.dynamic_date_num, function (index, value) {
-            if (!date_viewed.includes(value)) {
-                date_viewed.push(value)
-            }
-        })
+         let iterable = Array.isArray(this.state.data.dynamic_date_num)
+               ? this.state.data.dynamic_date_num
+               : Object.values(this.state.data.dynamic_date_num);
+         for (const date_num of iterable) {
+               if (!date_viewed.includes(date_num)) {
+                   date_viewed.push(date_num);
+               }
+         }
         if (date_viewed.length !== 0) {
             this.state.date_viewed = date_viewed.reverse()
         }

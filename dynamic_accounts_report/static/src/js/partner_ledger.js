@@ -351,7 +351,8 @@ class PartnerLedger extends owl.Component {
             }
         }
         let filtered_data = await this.orm.call("account.partner.ledger", "get_filter_values", [this.state.selected_partner, this.state.date_range, this.state.account, this.state.options,]);
-        $.each(filtered_data, function (index, value) {
+        for (let index in filtered_data) {
+            const value = filtered_data[index];
             if (index !== 'partner_totals') {
                 partner_list.push(index)
             }
@@ -362,14 +363,14 @@ class PartnerLedger extends owl.Component {
                         totalCreditSum += partner_list.total_credit || 0;
                     });
             }
-        })
+        }
         this.state.partners = partner_list
         this.state.data = filtered_data
         this.state.total = partner_totals
         this.state.total_debit = totalDebitSum
         this.state.total_credit = totalCreditSum
-        if ($(this.unfoldButton.el.classList).find("selected-filter")) {
-            this.unfoldButton.el.classList.remove("selected-filter")
+        if (this.unfoldButton.el.classList.contains("selected-filter")) {
+            this.unfoldButton.el.classList.remove("selected-filter");
         }
     }
     getDomain() {
@@ -384,12 +385,12 @@ class PartnerLedger extends owl.Component {
          */
         if (!ev.target.classList.contains("selected-filter")) {
             for (var length = 0; length < this.tbody.el.children.length; length++) {
-                $(this.tbody.el.children[length])[0].classList.add('show')
+                this.tbody.el.children[length].classList.add('show')
             }
             ev.target.classList.add("selected-filter");
         } else {
             for (var length = 0; length < this.tbody.el.children.length; length++) {
-                $(this.tbody.el.children[length])[0].classList.remove('show')
+                  this.tbody.el.children[length].classList.remove('show')
             }
             ev.target.classList.remove("selected-filter");
         }

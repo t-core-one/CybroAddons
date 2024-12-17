@@ -350,7 +350,6 @@
                                             <t t-foreach="state.data[partner]"
                                                t-as="valuelist"
                                                t-key="valuelist_index">
-                                                <t t-log="valuelist"/>
                                                 <tr class="border-bottom border-gainsboro collapse"
                                                     t-attf-id="partner-{{i}}"
                                                     t-att-data-id="valuelist[0]['move_id'][0]">
