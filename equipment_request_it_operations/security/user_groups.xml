@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Access Levels -->
+    <record model="ir.module.category" id="module_equipment_request_it_operations">
+        <field name="name">Equipments</field>
+        <field name="description">Access Levels</field>
+    </record>
+    <!-- Equipment_department_manager_res_group -->
+    <record id="equipment_request_it_operations_group_department_manager" model="res.groups">
+        <field name="name">Department Manager</field>
+        <field name="category_id" ref="module_equipment_request_it_operations"/>
+    </record>
+    <!-- Equipment_hr_officer_res_group -->
+    <record id="equipment_request_it_operations_group_hr_officer" model="res.groups">
+        <field name="name">HR Officer</field>
+        <field name="category_id" ref="module_equipment_request_it_operations"/>
+    </record>
+    <!-- Equipment_stock_manager_res_group -->
+    <record id="equipment_request_it_operations_group_stock_manager" model="res.groups">
+        <field name="name">Stock Manager</field>
+        <field name="category_id" ref="module_equipment_request_it_operations"/>
+    </record>
+    <!-- Admin_res_group -->
+    <record id="equipment_request_it_operations_group_admin" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_equipment_request_it_operations"/>
+        <field name="implied_ids"
+               eval="[(4, ref('equipment_request_it_operations_group_department_manager')),(4, ref('equipment_request_it_operations_group_stock_manager')), (4, ref('equipment_request_it_operations_group_hr_officer'))]"/>
+    </record>
+</odoo>
