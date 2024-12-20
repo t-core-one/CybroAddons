@@ -27,6 +27,7 @@
     'description': """Create Configurable Odoo Dynamic Dashboard to get the 
     information that are relevant to your business, department, or a specific 
     process or need""",
+    'live_test_url': 'https://www.youtube.com/watch?v=bSUashq4_D8',
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'maintainer': 'Cybrosys Techno Solutions',
