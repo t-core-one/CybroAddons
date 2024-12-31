@@ -43,7 +43,7 @@
         'report/scrap_management_product_wise_template.xml',
         'wizard/scrap_management_report_views.xml',
     ],
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
     'installable': True,
     'auto_install': False,
