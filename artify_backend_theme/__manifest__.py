@@ -21,6 +21,7 @@
 #############################################################################
 {
     "name": "Artify Backend Theme",
+    "version": "18.0.1.0.1",
     "description": "Minimalist and elegant backend "
                    "theme for Odoo 18, Backend Theme",
     "summary": "Artify Backend Theme V18 is an attractive theme for backend",
