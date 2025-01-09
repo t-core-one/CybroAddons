@@ -1,55 +1,109 @@
-// Utility function to apply CSS styles and class modifications
-function adjustLayoutOnSidebarToggle(isOpen) {
-    const actionManager = $(".o_action_manager");
-    const sidebarIcon = $(".side_bar_icon");
-    const navbar = $(".o_main_navbar");
-    const topHeading = $(".top_heading");
+/** @odoo-module **/
 
-    if (isOpen) {
-        $("#sidebar_panel").show();
-        if (window.matchMedia("(min-width: 768px)").matches) {
-            actionManager.css({ 'margin-left': '200px', 'transition': 'all .1s linear' });
-            sidebarIcon.css({ 'margin-left': '200px', 'transition': 'all .1s linear' });
+import { NavBar } from '@web/webclient/navbar/navbar';
+import { patch } from "@web/core/utils/patch";
+
+import {Component, onWillDestroy, useExternalListener, onMounted, useRef, onWillUnmount,} from "@odoo/owl";
+
+patch(NavBar.prototype, {
+    setup() {
+        super.setup();
+
+        this.openElement = useRef("openSidebar");
+        this.closeElement = useRef("closeSidebar");
+        this.topHeading = useRef("sidebar_icon");
+        this.sidebarLinks = useRef("sidebarLinks");
+        const sidebarLinkHandler = this.handleSidebarLinkClick.bind(this);
+        const openSidebarHandler = this.openSidebar.bind(this);
+        const closeSidebarHandler = this.closeSidebar.bind(this);
+        onMounted(() => {
+            const openSidebarElement = this.openElement.el
+            const closeSidebarElement = this.closeElement.el
+            const sidebarLinkElements = this.sidebarLinks.el.children;
+            if (sidebarLinkElements) {
+                Array.from(sidebarLinkElements).forEach(link => {
+                    link.addEventListener('click', sidebarLinkHandler);
+                });
+            }
+            if (openSidebarElement) {
+                openSidebarElement.addEventListener('click', openSidebarHandler);
+            }
+            if (closeSidebarElement) {
+                closeSidebarElement.addEventListener('click', closeSidebarHandler);
+            }
+        });
+
+        onWillUnmount(() => {
+            const openSidebarElement = this.openElement.el
+            const closeSidebarElement = this.closeElement.el
+            const sidebarLinkElements = this.sidebarLinks.el.children;
+            if (openSidebarElement) {
+                openSidebarElement.removeEventListener('click', openSidebarHandler);
+            }
+            if (closeSidebarElement) {
+                closeSidebarElement.removeEventListener('click', closeSidebarHandler);
+            }
+            if (sidebarLinkElements) {
+                Array.from(sidebarLinkElements).forEach(link => {
+                    link.removeEventListener('click', sidebarLinkHandler);
+                });
+            }
+        });
+    },
+
+    openSidebar() {
+        this.root.el.nextElementSibling.style.marginLeft = '200px';
+        this.root.el.nextElementSibling.style.transition = 'all .1s linear';
+        const openSidebarElement = this.openElement.el
+        const closeSidebarElement = this.closeElement.el
+        if (openSidebarElement) openSidebarElement.style.display = 'none';
+        if (closeSidebarElement) closeSidebarElement.style.display = 'block';
+        if (this.root.el.lastChild && this.root.el.lastChild.nodeType === Node.ELEMENT_NODE) {
+            this.root.el.lastChild.style.display = 'block';
         }
-        navbar.addClass("small_nav").addClass(navbar.data("id"));
-        actionManager.addClass("sidebar_margin").addClass(actionManager.data("id"));
-        topHeading.addClass("sidebar_margin").addClass(topHeading.data("id"));
-    } else {
-        $("#sidebar_panel").hide();
-        actionManager.css({ 'margin-left': '0px' });
-        sidebarIcon.css({ 'margin-left': '0px' });
-        navbar.removeClass("small_nav").removeClass(navbar.data("id"));
-        actionManager.removeClass("sidebar_margin").removeClass(actionManager.data("id"));
-        topHeading.removeClass("sidebar_margin").removeClass(topHeading.data("id"));
+
+         if (this.topHeading.el && this.topHeading.el.nodeType === Node.ELEMENT_NODE) {
+          this.topHeading.el.style.marginLeft = '200px';
+          this.topHeading.el.style.transition = 'all .1s linear';
+          this.topHeading.el.style.width = 'auto';
+        }
+    },
+
+    closeSidebar() {
+        console.log('Sidebar closed', this.topHeading);
+        this.root.el.nextElementSibling.style.marginLeft = '0px';
+        this.root.el.nextElementSibling.style.transition = 'all .1s linear';
+        const openSidebarElement = this.openElement.el
+        const closeSidebarElement = this.closeElement.el
+        if (openSidebarElement) openSidebarElement.style.display = 'block';
+        if (closeSidebarElement) closeSidebarElement.style.display = 'none';
+        if (this.root.el.lastChild && this.root.el.lastChild.nodeType === Node.ELEMENT_NODE) {
+            this.root.el.lastChild.style.display = 'none';
+        }
+        if (this.topHeading.el && this.topHeading.el.nodeType === Node.ELEMENT_NODE) {
+          this.topHeading.el.style.marginLeft = '0px';
+          this.topHeading.el.style.width = 'auto';
+        }
+    },
+
+    handleSidebarLinkClick(event) {
+        const closeSidebarElement = this.closeElement.el
+        if (closeSidebarElement) closeSidebarElement.style.display = 'none';
+        if (this.topHeading.el && this.topHeading.el.nodeType === Node.ELEMENT_NODE) {
+          this.topHeading.el.style.marginLeft = '0px';
+        }
+        if (this.topHeading.el && this.topHeading.el.nodeType === Node.ELEMENT_NODE) {
+          this.topHeading.el.style.marginLeft = '0px';
+          this.topHeading.el.style.width = '100%';
+        }
+        const li = event.currentTarget;
+        const a = li.firstElementChild;
+        const id = a.getAttribute('data-id');
+        document.querySelector('header').className = id;
+        Array.from(this.sidebarLinks.el.children).forEach(li => {
+            li.firstElementChild.classList.remove('active');
+        });
+        a.classList.add('active');
+        this.closeSidebar();
     }
-}
-
-// Toggle sidebar visibility on click
-$(document).on("click", "#openSidebar", () => {
-    $("#openSidebar").hide();
-    $("#closeSidebar").show();
-    adjustLayoutOnSidebarToggle(true);
-});
-
-$(document).on("click", "#closeSidebar", () => {
-    $("#closeSidebar").hide();
-    $("#openSidebar").show();
-    adjustLayoutOnSidebarToggle(false);
-});
-
-// Handle menu item clicks
-$(document).on("click", ".sidebar a", function () {
-    const $this = $(this);
-    const menuItems = $(".sidebar a");
-
-    menuItems.removeClass("active");
-    $this.addClass("active");
-
-    // Adjust the header to reflect the active menu
-    $("header").removeClass().addClass($this.data("id"));
-
-    // Close sidebar after menu item selection
-    adjustLayoutOnSidebarToggle(false);
-    $("#closeSidebar").hide();
-    $("#openSidebar").show();
 });

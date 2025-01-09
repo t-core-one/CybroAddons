@@ -21,7 +21,7 @@
 #############################################################################
 {
     "name": "Code Backend Theme Enterprise",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "category": "Themes/Backend",
     "summary": "Minimalist and elegant backend theme for Odoo Enterprise",
     "description": """Minimalist and elegant backend theme for Odoo Backend""",
@@ -36,16 +36,13 @@
     'assets': {
         'web.assets_backend': [
             "code_backend_theme_enterprise/static/src/xml/top_bar_templates.xml",
-            "code_backend_theme_enterprise/static/src/xml/sidebar_templates.xml",
             "code_backend_theme_enterprise/static/src/scss/sidebar.scss",
             "code_backend_theme_enterprise/static/src/js/chrome/sidebar.js",
             "code_backend_theme_enterprise/static/src/js/fields/colors.js",
             "code_backend_theme_enterprise/static/src/scss/theme_accent.scss",
             "code_backend_theme_enterprise/static/src/scss/datetimepicker.scss",
             "code_backend_theme_enterprise/static/src/scss/theme.scss",
-            "https://fonts.googleapis.com/css2?family=Poppins:wght@400;700"
-            "&display=swap",
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
+            "https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap",
         ],
         'web.assets_frontend': [
             "code_backend_theme_enterprise/static/src/scss/login.scss",
@@ -57,7 +54,6 @@
         'static/description/banner.jpg',
         'static/description/theme_screenshot.jpg',
     ],
-    'icon':'static/description/icon.png',
     'license': 'LGPL-3',
     'installable': True,
     'auto_install': False,
